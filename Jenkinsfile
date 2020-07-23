@@ -1,11 +1,9 @@
 pipeline {
-    agent { node { label 'maven' }}
+    agent { label 'maven' }
     stages {
         stage ("build and package") {
             steps {
-                withSonarQubeEnv('SonarQube Server') {
-                    sh 'mvn clean package'
-                }
+                sh 'mvn clean package'
             }
         }
     }
